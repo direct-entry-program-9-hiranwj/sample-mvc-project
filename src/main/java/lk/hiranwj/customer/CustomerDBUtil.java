@@ -9,24 +9,30 @@ import java.util.List;
 
 public class CustomerDBUtil {
 
+    private static Connection con = null;
+    private static Statement stm = null;
+    private static ResultSet rst = null;
+
     public static List<Customer> validate(String username, String password) {
 
         ArrayList<Customer> customers = new ArrayList<>();
 
         // Create DB Connection
-        String url = "jdbc:mysql://localhost:3306/hotel";
-        String user = "root";
-        String passw = "mysql";
+//        String url = "jdbc:mysql://localhost:3306/hotel";
+//        String user = "root";
+//        String passw = "mysql";
 
         // Validate part
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection(url, user, passw);
+//            Statement stm = con.createStatement();
 
-            Connection con = DriverManager.getConnection(url, user, passw);
-            Statement stm = con.createStatement();
+            con = DBConnect.getConnection();
+            stm = con.createStatement();
             String sql = "SELECT * FROM Customer WHERE username='"+username+"' AND password='"+password+"'";
-            ResultSet rst = stm.executeQuery(sql);
+            rst = stm.executeQuery(sql);
 
             /* next(), boolean method */
             if (rst.next()) {
@@ -53,19 +59,21 @@ public class CustomerDBUtil {
         boolean isSuccess = false;
 
         // Create DB Connection
-        String url = "jdbc:mysql://localhost:3306/hotel";
-        String user = "root";
-        String passw = "mysql";
+//        String url = "jdbc:mysql://localhost:3306/hotel";
+//        String user = "root";
+//        String passw = "mysql";
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection(url, user, passw);
+//            Statement stm = con.createStatement();
 
-            Connection con = DriverManager.getConnection(url, user, passw);
-            Statement stm = con.createStatement();
+            con = DBConnect.getConnection();
+            stm = con.createStatement();
 
             String sql = "INSERT INTO Customer VALUES(0, '"+name+"', '"+email+"', '"+phone+"', '"+username+"', '"+password+"')";
             int rst = stm.executeUpdate(sql);
-            System.out.println("rst: " + rst);
+
             if (rst > 0) {
                 isSuccess = true;
             }else {
