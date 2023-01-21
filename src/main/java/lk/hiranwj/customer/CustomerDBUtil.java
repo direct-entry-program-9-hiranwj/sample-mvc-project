@@ -35,7 +35,7 @@ public class CustomerDBUtil {
                 String email = rst.getString(3);
                 String phone = rst.getString(4);
                 String usern = rst.getString(5);
-                String pass = rst.getString(5);
+                String pass = rst.getString(6);
 
                 Customer c = new Customer(id, name, email, phone, usern, pass);
                 customers.add(c);
