@@ -16,6 +16,8 @@
     <table>
         <c:forEach var="cus" items="${cusDetails}">
 
+
+
             <tr>
                 <td>Customer ID</td>
                 <td>${cus.id}</td>
