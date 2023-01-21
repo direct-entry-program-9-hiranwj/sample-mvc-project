@@ -19,6 +19,7 @@
             <c:set var="id" value="${cus.id}"/>
             <c:set var="name" value="${cus.name}"/>
             <c:set var="email" value="${cus.email}"/>
+            <c:set var="phone" value="${cus.phone}"/>
             <c:set var="username" value="${cus.username}"/>
             <c:set var="password" value="${cus.password}"/>
 
@@ -54,6 +55,7 @@
         <c:param name="id" value="${id}"/>
         <c:param name="name" value="${name}"/>
         <c:param name="email" value="${email}"/>
+        <c:param name="phone" value="${phone}"/>
         <c:param name="uname" value="${username}"/>
         <c:param name="pass" value="${password}"/>
     </c:url>
