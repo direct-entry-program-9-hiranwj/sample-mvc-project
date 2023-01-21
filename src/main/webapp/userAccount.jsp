@@ -16,7 +16,11 @@
     <table>
         <c:forEach var="cus" items="${cusDetails}">
 
-
+            <c:set var="id" value="${cus.id}"/>
+            <c:set var="name" value="${cus.name}"/>
+            <c:set var="email" value="${cus.email}"/>
+            <c:set var="username" value="${cus.username}"/>
+            <c:set var="password" value="${cus.password}"/>
 
             <tr>
                 <td>Customer ID</td>
@@ -46,5 +50,16 @@
         </c:forEach>
     </table>
 
+    <c:url value="update.jsp" var="cusUpdate">
+        <c:param name="id" value="${id}"/>
+        <c:param name="name" value="${name}"/>
+        <c:param name="email" value="${email}"/>
+        <c:param name="uname" value="${username}"/>
+        <c:param name="pass" value="${password}"/>
+    </c:url>
+
+    <a href="${cusUpdate}">
+        <input type="button" name="update" value="Update My Data">
+    </a>
 </body>
 </html>
